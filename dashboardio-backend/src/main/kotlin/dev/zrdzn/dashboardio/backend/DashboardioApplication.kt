@@ -1,0 +1,8 @@
+package dev.zrdzn.dashboardio.backend
+
+import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan
+
+@SpringBootApplication
+@ConfigurationPropertiesScan
+class DashboardioApplication
