@@ -7,6 +7,8 @@ import { Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay } from '
 import { useTheme } from '@/hooks/theme';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars, faBolt, faGears, faHouse, faX} from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+import {useRouter} from "next/router";
 
 const SidebarLogo = (): ReactJSXElement => {
     return (
@@ -23,6 +25,9 @@ const SidebarLogo = (): ReactJSXElement => {
 const BaseView = (): ReactJSXElement => {
   const {isOpen, onOpen, onClose} = useDisclosure();
   const theme = useTheme();
+  const router = useRouter();
+
+  const serverPublicId = router.query.serverPublicId
 
   return (
     <>
@@ -42,7 +47,7 @@ const BaseView = (): ReactJSXElement => {
         </Flex>
       </Flex>
 
-      <Drawer placement="top"
+      <Drawer placement={'left'}
               onClose={onClose}
               isOpen={isOpen}>
         <DrawerOverlay/>
@@ -56,22 +61,28 @@ const BaseView = (): ReactJSXElement => {
                         <SidebarLogo />
                     </Flex>
                     <Flex>
-                        <Button backgroundColor={theme.primaryColor}
-                                onClick={onClose}>
-                            <FontAwesomeIcon icon={faX} />
-                        </Button>
+                      <Button backgroundColor={theme.primaryColor}
+                              padding={3.5}
+                              variant={'unstyled'}
+                              onClick={onClose}>
+                        <FontAwesomeIcon icon={faX} />
+                      </Button>
                     </Flex>
                 </Flex>
             </DrawerHeader>
           <DrawerBody>
-              <Flex direction={'column'}>
-                  <Flex marginY={2}>
+              <Flex direction={'column'}
+                    gap={3}
+                    alignItems={'center'}>
+                  <Flex width={'3xs'}>
+                    <Link href={`/server/${serverPublicId}/general`}
+                          style={{width: "inherit"}}>
                       <Button backgroundColor={theme.primaryColor}
                               onClick={onClose}
                               width={'full'}>
-                          <Flex columnGap={1}>
+                          <Flex columnGap={2}>
                             <Flex>
-                              <FontAwesomeIcon width={'18'}
+                              <FontAwesomeIcon width={16}
                                                icon={faHouse} />
                             </Flex>
                             <Flex>
@@ -79,36 +90,43 @@ const BaseView = (): ReactJSXElement => {
                             </Flex>
                           </Flex>
                       </Button>
+                    </Link>
                   </Flex>
-                  <Flex marginY={2}>
-                    <Button backgroundColor={theme.primaryColor}
-                            onClick={onClose}
-                            width={'full'}>
-                      <Flex columnGap={1}>
-                        <Flex>
-                          <FontAwesomeIcon width={'18'}
-                                           icon={faBolt} />
-                        </Flex>
-                        <Flex>
-                          Electricity
-                        </Flex>
-                      </Flex>
-                    </Button>
+                  <Flex width={'3xs'}>
+                    <Link href={`/server/${serverPublicId}/electricity`}
+                          style={{width: "inherit"}}>
+                      <Button backgroundColor={theme.primaryColor}
+                              onClick={onClose}
+                              width={'full'}>
+                          <Flex columnGap={2}>
+                            <Flex>
+                              <FontAwesomeIcon width={16}
+                                               icon={faBolt} />
+                            </Flex>
+                            <Flex>
+                              Electricity
+                            </Flex>
+                          </Flex>
+                      </Button>
+                    </Link>
                   </Flex>
-                  <Flex marginY={2}>
-                    <Button backgroundColor={theme.primaryColor}
-                            onClick={onClose}
-                            width={'full'}>
-                      <Flex columnGap={1}>
-                        <Flex>
-                          <FontAwesomeIcon width={'18'}
-                                           icon={faGears} />
+                  <Flex width={'3xs'}>
+                    <Link href={`/server/${serverPublicId}/production`}
+                          style={{width: "inherit"}}>
+                      <Button backgroundColor={theme.primaryColor}
+                              onClick={onClose}
+                              width={'full'}>
+                        <Flex columnGap={2}>
+                          <Flex>
+                            <FontAwesomeIcon width={16}
+                                             icon={faGears} />
+                          </Flex>
+                          <Flex>
+                            Production
+                          </Flex>
                         </Flex>
-                        <Flex>
-                          Production
-                        </Flex>
-                      </Flex>
-                    </Button>
+                      </Button>
+                    </Link>
                   </Flex>
               </Flex>
           </DrawerBody>

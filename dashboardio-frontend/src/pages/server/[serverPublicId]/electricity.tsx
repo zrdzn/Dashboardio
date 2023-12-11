@@ -7,8 +7,10 @@ export default function ServerDashboard(): ReactJSXElement {
   return (
     <Layout>
       <Head>
-        <title>Dashboardio - Server Dashboard</title>
+        <title>Dashboardio - Factory Electricity</title>
       </Head>
+
+
     </Layout>
   );
 }
