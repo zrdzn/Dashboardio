@@ -1,0 +1,8 @@
+{
+  "name": "dashboardio",
+  "version": "0.1.0",
+  "title": "Dashboardio - A client which sends data to Dashboardio backend server.",
+  "description": "This mod sends data to your configured Dashboardio backend server from specified worlds or servers.",
+  "author": "zrdzn",
+  "homepage": "https://github.com/zrdzn/dashboardio"
+}
