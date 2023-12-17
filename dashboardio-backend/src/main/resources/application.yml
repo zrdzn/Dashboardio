@@ -1,11 +1,13 @@
 spring:
+  main:
+    banner-mode: off
   liquibase:
     change-log: database/changelog-master.xml
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${DATABASE_URL}
-    username: ${POSTGRES_DB_USER}
-    password: ${POSTGRES_DB_PASSWORD}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     hikari:
       maximum-pool-size: 50
       minimum-idle: 20
