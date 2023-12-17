@@ -1,29 +1,26 @@
 package dev.zrdzn.dashboardio.backend.common.block
 
+import dev.zrdzn.dashboardio.backend.common.action.ActionId
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
 import jakarta.persistence.Id
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
-import java.time.LocalDateTime
 
-typealias BlockHistoryEntryId = Long
+typealias BlockId = Long
 typealias BlockName = String
 
-@Entity(name = "BlockHistoryEntry")
+@Entity(name = "Block")
 @Table(name = "blocks_history")
-data class BlockHistoryEntry(
+data class Block(
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: BlockHistoryEntryId?,
+    val id: BlockId?,
 
-    @Column(name = "changed_at", updatable = false)
-    val changedAt: LocalDateTime?,
-
-    @Column(name = "change", updatable = false)
-    val change: Int,
+    @Column(name = "action_id", updatable = false)
+    val actionId: ActionId,
 
     @Column(name = "name", updatable = false)
     val name: BlockName,
