@@ -8,5 +8,5 @@ CREATE TABLE "blocks_history"
     "x"              integer NOT NULL,
     "y"              integer NOT NULL,
     CONSTRAINT "pk_blocks_history" PRIMARY KEY ("id"),
-    CONSTRAINT "fk_blocks_history_action_id" FOREIGN KEY ("action_id") REFERENCES "actions" ("id")
+    CONSTRAINT "fk_blocks_history_action_id" FOREIGN KEY ("action_id") REFERENCES "actions_history" ("id")
 );

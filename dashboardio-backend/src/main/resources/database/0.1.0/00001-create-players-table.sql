@@ -3,6 +3,6 @@
 CREATE TABLE "players"
 (
     "id"             serial,
-    "player_name"      integer NOT NULL,
+    "player_name"    text NOT NULL,
     CONSTRAINT "pk_players" PRIMARY KEY ("id")
 );

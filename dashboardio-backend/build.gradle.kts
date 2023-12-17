@@ -32,6 +32,8 @@ dependencies {
     implementation("io.hypersistence:hypersistence-utils-hibernate-62:3.5.0")
 
     implementation("org.postgresql:postgresql:42.6.0")
+
+    runtimeOnly("org.jetbrains.kotlin:kotlin-reflect:1.2.41")
 }
 
 java {

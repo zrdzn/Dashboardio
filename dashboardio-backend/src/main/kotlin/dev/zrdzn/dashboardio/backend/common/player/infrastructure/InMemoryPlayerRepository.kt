@@ -9,7 +9,7 @@ class InMemoryPlayerRepository : PlayerRepository {
     private val players = mutableMapOf<PlayerId, Player>()
 
     override fun save(player: Player): Player =
-        players.put(players.size + 1L, player)!!
+        players.put(players.size + 1, player)!!
 
     override fun findByPlayerName(playerName: String): Player? = players.values.firstOrNull { it.playerName == playerName }
 

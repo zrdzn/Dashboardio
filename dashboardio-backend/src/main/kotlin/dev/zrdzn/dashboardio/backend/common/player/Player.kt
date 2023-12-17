@@ -7,7 +7,7 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
 
-typealias PlayerId = Long
+typealias PlayerId = Int
 
 @Entity(name = "Player")
 @Table(name = "players")

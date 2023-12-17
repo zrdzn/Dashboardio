@@ -14,7 +14,7 @@ import jakarta.persistence.Table
 import java.time.Instant
 import org.hibernate.annotations.Type
 
-typealias ActionId = Long
+typealias ActionId = Int
 
 @Entity(name = "Action")
 @Table(name = "actions_history")
@@ -24,7 +24,7 @@ data class Action(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: ActionId?,
 
-    @Column(name = "action_type", updatable = false)
+    @Column(columnDefinition = "action_type", updatable = false)
     @Enumerated(EnumType.STRING)
     @Type(PostgreSQLEnumType::class)
     val actionType: ActionType,

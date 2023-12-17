@@ -8,7 +8,7 @@ import jakarta.persistence.Id
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 
-typealias BlockId = Long
+typealias BlockId = Int
 typealias BlockName = String
 
 @Entity(name = "Block")
@@ -22,8 +22,8 @@ data class Block(
     @Column(name = "action_id", updatable = false)
     val actionId: ActionId,
 
-    @Column(name = "name", updatable = false)
-    val name: BlockName,
+    @Column(name = "block_name", updatable = false)
+    val blockName: BlockName,
 
     @Column(name = "x", updatable = false)
     val x: Int,

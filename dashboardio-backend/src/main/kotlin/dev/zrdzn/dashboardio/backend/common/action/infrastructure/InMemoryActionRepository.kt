@@ -9,6 +9,6 @@ class InMemoryActionRepository : ActionRepository {
     private val actions = mutableMapOf<ActionId, Action>()
 
     override fun save(action: Action): Action =
-        actions.put(actions.size + 1L, action)!!
+        actions.put(actions.size + 1, action)!!
 
 }
