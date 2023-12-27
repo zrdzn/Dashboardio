@@ -1,5 +1,6 @@
 package dev.zrdzn.dashboardio.backend.common.block
 
+import dev.zrdzn.dashboardio.backend.api.action.ActionType
 import dev.zrdzn.dashboardio.backend.api.block.BlockCreateRequest
 import dev.zrdzn.dashboardio.backend.api.block.BlockCreateResponse
 import org.springframework.data.domain.PageRequest
@@ -29,6 +30,17 @@ open class BlockFacade(private val blockRepository: BlockRepository) {
     open fun findAll(limit: Int): Set<Block> = blockRepository.findAll(PageRequest.of(0, limit)).toSet()
 
     @Transactional
-    open fun calculateBlocksCountByName(name: BlockName): Long = blockRepository.calculateBlocksCountByName(name)
+    open fun getTotalPlacedBlocksByName(name: BlockName): Long =
+        blockRepository.calculateBlocksCountByNameAndActionType(
+            name = name,
+            actionType = ActionType.BLOCK_PLACE
+        )
+
+    @Transactional
+    open fun getTotalBrokenBlocksByName(name: BlockName): Long =
+        blockRepository.calculateBlocksCountByNameAndActionType(
+            name = name,
+            actionType = ActionType.BLOCK_BREAK
+        )
 
 }

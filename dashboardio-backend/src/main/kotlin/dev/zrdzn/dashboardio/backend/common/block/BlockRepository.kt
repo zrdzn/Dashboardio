@@ -1,5 +1,6 @@
 package dev.zrdzn.dashboardio.backend.common.block
 
+import dev.zrdzn.dashboardio.backend.api.action.ActionType
 import org.springframework.data.domain.Pageable
 
 interface BlockRepository {
@@ -8,6 +9,6 @@ interface BlockRepository {
 
     fun findAll(limit: Pageable): List<Block>
 
-    fun calculateBlocksCountByName(name: BlockName): Long
+    fun calculateBlocksCountByNameAndActionType(name: BlockName, actionType: ActionType): Long
 
 }
