@@ -10,7 +10,7 @@ plugins {
     kotlin("plugin.spring") version "1.9.21"
 }
 
-group = "dev.zrdzn.web.dashboardio"
+group = "dev.zrdzn.dashboardio"
 version = "0.1.0-SNAPSHOT"
 
 repositories {
