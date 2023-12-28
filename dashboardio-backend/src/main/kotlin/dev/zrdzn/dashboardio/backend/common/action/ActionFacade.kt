@@ -17,4 +17,7 @@ open class ActionFacade(private val actionRepository: ActionRepository) {
         return ActionCreateResponse(actionRepository.save(action).id!!)
     }
 
+    @Transactional
+    open fun getActionById(id: Int): Action? = actionRepository.findById(id)
+
 }

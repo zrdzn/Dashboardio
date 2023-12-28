@@ -4,4 +4,6 @@ interface ActionRepository {
 
     fun save(action: Action): Action
 
+    fun findById(id: Int): Action?
+
 }

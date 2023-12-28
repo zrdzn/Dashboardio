@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController("/api/block")
 class BlockController(private val blockFacade: BlockFacade) {
 
-    @PostMapping
+    @PostMapping("/create")
     fun createBlock(blockCreateRequest: BlockCreateRequest): ResponseEntity<BlockCreateResponse> =
         ok(blockFacade.createBlock(blockCreateRequest))
 

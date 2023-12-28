@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController("/api/action")
 class ActionController(private val actionFacade: ActionFacade) {
 
-    @PostMapping
+    @PostMapping("/create")
     fun createAction(@RequestBody actionCreateRequest: ActionCreateRequest): ResponseEntity<ActionCreateResponse> =
         ok(actionFacade.createAction(actionCreateRequest))
 

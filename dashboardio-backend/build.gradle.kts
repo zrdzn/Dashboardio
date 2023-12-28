@@ -50,6 +50,13 @@ tasks.withType<KotlinCompile> {
     }
 }
 
+sourceSets {
+    create("integration") {
+        kotlin.srcDir("src/integration/kotlin")
+        resources.srcDir("src/integration/resources")
+    }
+}
+
 tasks.withType<Test> {
     useJUnitPlatform()
 
@@ -68,4 +75,13 @@ tasks.withType<Test> {
     }
 
     maxParallelForks = 1
+}
+
+tasks.register("integrationTest", Test::class) {
+    testClassesDirs = sourceSets["integration"].output.classesDirs
+    classpath = sourceSets["integration"].runtimeClasspath
+}
+
+tasks.named("test").configure {
+    dependsOn("integrationTest")
 }

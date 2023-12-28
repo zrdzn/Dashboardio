@@ -9,6 +9,6 @@ interface BlockRepository {
 
     fun findAll(limit: Pageable): List<Block>
 
-    fun calculateBlocksCountByNameAndActionType(name: BlockName, actionType: ActionType): Long
+    fun calculateBlocksCountByNameAndActionType(blockName: BlockName, actionType: ActionType): Long
 
 }

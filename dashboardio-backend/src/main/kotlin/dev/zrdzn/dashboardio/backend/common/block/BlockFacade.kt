@@ -30,16 +30,16 @@ open class BlockFacade(private val blockRepository: BlockRepository) {
     open fun findAll(limit: Int): Set<Block> = blockRepository.findAll(PageRequest.of(0, limit)).toSet()
 
     @Transactional
-    open fun getTotalPlacedBlocksByName(name: BlockName): Long =
+    open fun getTotalPlacedBlocksByName(blockName: BlockName): Long =
         blockRepository.calculateBlocksCountByNameAndActionType(
-            name = name,
+            blockName = blockName,
             actionType = ActionType.BLOCK_PLACE
         )
 
     @Transactional
-    open fun getTotalBrokenBlocksByName(name: BlockName): Long =
+    open fun getTotalBrokenBlocksByName(blockName: BlockName): Long =
         blockRepository.calculateBlocksCountByNameAndActionType(
-            name = name,
+            blockName = blockName,
             actionType = ActionType.BLOCK_BREAK
         )
 

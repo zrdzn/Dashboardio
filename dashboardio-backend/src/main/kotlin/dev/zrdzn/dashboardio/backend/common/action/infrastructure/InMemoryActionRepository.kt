@@ -11,4 +11,7 @@ class InMemoryActionRepository : ActionRepository {
     override fun save(action: Action): Action =
         actions.put(actions.size + 1, action)!!
 
+    override fun findById(id: Int): Action? =
+        actions[id]
+
 }

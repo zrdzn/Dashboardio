@@ -17,7 +17,7 @@ interface JpaBlockRepository : BlockRepository, Repository<Block, BlockId> {
         join Action action on block.actionId = action.id
         where block.blockName = :blockName and action.actionType = :actionType
     """)
-    override fun calculateBlocksCountByNameAndActionType(name: BlockName, actionType: ActionType): Long
+    override fun calculateBlocksCountByNameAndActionType(blockName: BlockName, actionType: ActionType): Long
 
     @Query("select block from Block block order by block.id")
     override fun findAll(limit: Pageable): List<Block>

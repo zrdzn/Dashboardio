@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController("/api/player")
 class PlayerController(private val playerFacade: PlayerFacade) {
 
-    @PostMapping
+    @PostMapping("/create")
     fun createPlayer(@RequestBody playerCreateRequest: PlayerCreateRequest): ResponseEntity<PlayerCreateResponse> =
         ok(playerFacade.createPlayer(playerCreateRequest))
 
