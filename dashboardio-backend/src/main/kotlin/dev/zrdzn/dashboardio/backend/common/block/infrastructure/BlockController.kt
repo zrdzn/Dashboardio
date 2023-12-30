@@ -9,9 +9,11 @@ import org.springframework.http.ResponseEntity.ok
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
-@RestController("/api/block")
+@RestController
+@RequestMapping("/api/block")
 class BlockController(private val blockFacade: BlockFacade) {
 
     @PostMapping("/create")
