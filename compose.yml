@@ -10,7 +10,8 @@ services:
       - POSTGRES_PASSWORD=test
       - POSTGRES_DB=test
     ports:
-      - '5432:5432'
+      - '6000:6000'
+    command: -p 6000
 volumes:
   database:
     driver: local
